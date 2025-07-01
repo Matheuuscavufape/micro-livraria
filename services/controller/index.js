@@ -41,6 +41,26 @@ app.get('/shipping/:cep', (req, res, next) => {
         }
     );
 });
+/**
+ * Retorna os dados de um único produto pelo ID
+ */
+app.get('/product/:id', (req, res) => {
+    const productId = parseInt(req.params.id);
+
+    inventory.SearchAllProducts(null, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send({ error: 'Erro ao buscar produtos.' });
+        }
+
+        const product = data.products.find(p => p.id === productId);
+        if (!product) {
+            return res.status(404).send({ error: 'Produto não encontrado.' });
+        }
+
+        res.json(product);
+    });
+});
 
 /**
  * Inicia o router
