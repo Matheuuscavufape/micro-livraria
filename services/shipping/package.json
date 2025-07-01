@@ -1,0 +1,14 @@
+{
+  "name": "shipping-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "@grpc/grpc-js": "^1.5.2",
+    "@grpc/proto-loader": "^0.6.9",
+    "google-protobuf": "^3.19.3"
+  }
+}

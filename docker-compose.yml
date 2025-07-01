@@ -1,0 +1,6 @@
+
+services:
+  shipping:
+    build: ./services/shipping
+    ports:
+      - "3001:3001"
